@@ -45,7 +45,7 @@
                     echo "<br>";
                     foreach ($results as $row) {
                         ?>
-                        <div class="col-sm-4 col-lg-4 col-md-4">
+                        <div class="col s12 m6 l4 card-container">
                             <div class="thumbnail">
                                 <!-- I added the link here for the images. It's really a rough draft, but it is working on my machine. -->
                                 <img src="<?php echo base_url('images/item_images/' . 'thumbnail_' . $row['image']); ?>"
