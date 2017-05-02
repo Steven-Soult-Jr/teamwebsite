@@ -26,6 +26,7 @@
     </body>
 
     <?php
+    sort($results);
     if (isset($results))
     {
         echo "<br>";

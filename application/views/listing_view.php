@@ -4,6 +4,10 @@
     body {
         color: black;
     }
+    p{
+        text-align: center;
+    }
+
 </style>
 <body>
 <div class="container">
@@ -22,15 +26,16 @@
                     <div class="tab-box ">
 
                         <!--Sorting Function -->
-                        <div class="tab-filter">
+                        <div class="tab-filter pull-right">
                             <div class="selecter select-short-by closed" tabindex="0"><select
                                         class="selectpicker selecter-element" data-style="btn-select" data-width="auto"
                                         tabindex="-1">
                                     <option value="Sort by">Sort by</option>
-                                    <option value="Price: Low to High">Price: Low to High</option>
-                                    <option value="Price: High to Low">Price: High to Low</option>
+                                    <option value="#">Price: Low to High</option>
+                                    <option value="#">Price: High to Low</option>
                                 </select></div>
                         </div>
+                        <!--End of Sorting Function -->
 
                         <div class="menu-overly-mask"></div>
                     </div>
@@ -38,6 +43,7 @@
 
             </div>
 
+            <!-- Page Results -->
             <div class="row">
 
                 <?php
@@ -45,28 +51,30 @@
                     echo "<br>";
                     foreach ($results as $row) {
                         ?>
-                        <div class="col s12 m6 l4 card-container">
+                        <div class="col-sm-3 col-lg-3 col-md-6">
                             <div class="thumbnail">
                                 <!-- I added the link here for the images. It's really a rough draft, but it is working on my machine. -->
+                                <a href="<?php echo base_url()?>index.php/messaging">
                                 <img src="<?php echo base_url('images/item_images/' . 'thumbnail_' . $row['image']); ?>"
-                                     class="img-responsive" width="100px" height="100px" alt="Image not found">
+                                     class="img-responsive" width="200px" height="200px" alt="Image not found"></a>
                                     <?php
                                     ?>
-                                    <h4>
+                                <br>
+                                    <p margin="" class="center">
                                         <?php
                                         echo $row['name'] . "<br>";
                                         ?>
-                                    </h4>
-                                    <p>
                                         <?php
                                         echo "$" . $row['price'] . "<br>";
                                         ?>
+                                        <?php
+                                        echo "Condition: " . $row['condition'] . "<br>";
+                                        ?>
                                     </p>
                                     <?php
-                                    echo "<br>";
                                     ?>
-                                <a class="btn btn-primary" target="_blank" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
-                                <a class="btn btn-default" target="_blank" href="<?php echo base_url()?>index.php/individual_listing"> More Info </a>
+                                <a class="btn btn-default" target="_blank" style="border: none;" href="<?php echo base_url()?>index.php/individual_listing"> More Info </a>
+                                <a class="btn btn-primary pull-right" target="_blank" style="border: none;" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
                             </div>
                         </div>
                         <?php
@@ -74,7 +82,7 @@
                 }
                 ?>
             </div>
-
+            <!-- End of Page Results -->
 
             <!--Pagination-->
             <div class="pagination-bar text-center">
