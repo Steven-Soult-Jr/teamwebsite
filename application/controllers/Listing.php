@@ -23,4 +23,13 @@ class Listing extends CI_Controller
         $this->load->view('footer');
     }
 
+    public function sortLoToHi()
+    {
+        $title = array(
+            'title' => 'Description');
+        $this->load->view('header', $title);
+        $this->load->view('listing_view');
+        $this->load->view('footer');
+    }
+
 }

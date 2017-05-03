@@ -31,7 +31,7 @@
                                         class="selectpicker selecter-element" data-style="btn-select" data-width="auto"
                                         tabindex="-1">
                                     <option value="Sort by">Sort by</option>
-                                    <option value="#">Price: Low to High</option>
+                                    <option href="<?php echo base_url('/index.php/listing/sortLoToHi'); ?>">Price: Low to High</option>
                                     <option value="#">Price: High to Low</option>
                                 </select></div>
                         </div>
