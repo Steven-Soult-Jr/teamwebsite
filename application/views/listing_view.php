@@ -4,6 +4,9 @@
     body {
         color: black;
     }
+    p{
+        text-align: center;
+    }
 </style>
 <body>
 <div class="container">
@@ -12,9 +15,9 @@
         <!-- Main Page -->
         <div class="col-md-12">
             <!-- Header -->
-            <h1>Search Results Found <?php
+            <p class="pull-left">Search Results Found <?php
                 echo count($results);
-                ?> Items</h1>
+                ?> Items</p>
 
             <!-- Listing Content -->
             <div class="col-sm-12 page-content">
@@ -22,7 +25,7 @@
                     <div class="tab-box ">
 
                         <!--Sorting Function -->
-                        <div class="tab-filter">
+                        <div class="tab-filter pull-right">
                             <div class="selecter select-short-by closed" tabindex="0"><select
                                         class="selectpicker selecter-element" data-style="btn-select" data-width="auto"
                                         tabindex="-1">
@@ -38,6 +41,8 @@
 
             </div>
 
+            <br> <!--Needed Spacing -->
+
             <div class="row">
 
                 <?php
@@ -50,30 +55,33 @@
                             <div class="thumbnail">
                                 <!-- I added the link here for the images. It's really a rough draft, but it is working on my machine. -->
                                 <img src="<?php echo base_url('images/item_images/' . 'thumbnail_' . $row['image']); ?>"
-                                     class="img-responsive" width="100px" height="100px" alt="Image not found">
+                                     class="img-responsive" width="200px" height="200px" alt="Image not found">
                                     <?php
                                     ?>
-                                    <h4>
-                                        <?php
-                                        echo $row['name'] . "<br>";
-                                        ?>
-                                    </h4>
                                     <p>
+                                        <?php
+                                        echo $row['name'] . '<br>';
+                                        ?>
+                                        <?php
+                                        echo "Condition: " . $row['condition'];
+                                        ?>
+                                    </p>
+                                    <p2 class="pull-right">
                                         <?php
                                         echo "$" . $row['price'] . "<br>";
                                         ?>
-                                    </p>
+                                    </p2>
                                     <?php
                                     echo "<br>";
                                     ?>
-                                <a class="btn btn-primary" target="_blank" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
+                                <a class="btn btn-primary pull-right" target="_blank" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
 
                                 <!-- Creates a form with a hidden field that has the itemid number in it.
                                      When button is clicked, calls the load_details function in the Search
                                      controller -->
                                 <form action = "load_details" method ="post">
                                     <input type="hidden" name=itemid value = "<?php echo $id ?>" />
-                                    <button class="btn btn-primary" type="submit" >More Info</button>
+                                    <button class="btn btn-default" type="submit" >More Info</button>
                                 </form>
 
 
