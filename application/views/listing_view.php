@@ -4,10 +4,6 @@
     body {
         color: black;
     }
-    p{
-        text-align: center;
-    }
-
 </style>
 <body>
 <div class="container">
@@ -26,16 +22,15 @@
                     <div class="tab-box ">
 
                         <!--Sorting Function -->
-                        <div class="tab-filter pull-right">
+                        <div class="tab-filter">
                             <div class="selecter select-short-by closed" tabindex="0"><select
                                         class="selectpicker selecter-element" data-style="btn-select" data-width="auto"
                                         tabindex="-1">
                                     <option value="Sort by">Sort by</option>
-                                    <option href="<?php echo base_url('/index.php/listing/sortLoToHi'); ?>">Price: Low to High</option>
-                                    <option value="#">Price: High to Low</option>
+                                    <option value="Price: Low to High">Price: Low to High</option>
+                                    <option value="Price: High to Low">Price: High to Low</option>
                                 </select></div>
                         </div>
-                        <!--End of Sorting Function -->
 
                         <div class="menu-overly-mask"></div>
                     </div>
@@ -43,38 +38,45 @@
 
             </div>
 
-            <!-- Page Results -->
             <div class="row">
 
                 <?php
                 if (isset($results)) {
                     echo "<br>";
                     foreach ($results as $row) {
+                        $id = $row['itemid'];
                         ?>
-                        <div class="col-sm-3 col-lg-3 col-md-6">
+                        <div class="col-sm-4 col-lg-4 col-md-4">
                             <div class="thumbnail">
                                 <!-- I added the link here for the images. It's really a rough draft, but it is working on my machine. -->
-                                <a href="<?php echo base_url()?>index.php/messaging">
                                 <img src="<?php echo base_url('images/item_images/' . 'thumbnail_' . $row['image']); ?>"
-                                     class="img-responsive" width="200px" height="200px" alt="Image not found"></a>
+                                     class="img-responsive" width="100px" height="100px" alt="Image not found">
                                     <?php
                                     ?>
-                                <br>
-                                    <p margin="" class="center">
+                                    <h4>
                                         <?php
                                         echo $row['name'] . "<br>";
                                         ?>
+                                    </h4>
+                                    <p>
                                         <?php
                                         echo "$" . $row['price'] . "<br>";
                                         ?>
-                                        <?php
-                                        echo "Condition: " . $row['condition'] . "<br>";
-                                        ?>
                                     </p>
                                     <?php
+                                    echo "<br>";
                                     ?>
-                                <a class="btn btn-default" target="_blank" style="border: none;" href="<?php echo base_url()?>index.php/individual_listing"> More Info </a>
-                                <a class="btn btn-primary pull-right" target="_blank" style="border: none;" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
+                                <a class="btn btn-primary" target="_blank" href="<?php echo base_url()?>index.php/messaging"> Contact </a>
+
+                                <!-- Creates a form with a hidden field that has the itemid number in it.
+                                     When button is clicked, calls the load_details function in the Search
+                                     controller -->
+                                <form action = "load_details" method ="post">
+                                    <input type="hidden" name=itemid value = "<?php echo $id ?>" />
+                                    <button class="btn btn-primary" type="submit" >More Info</button>
+                                </form>
+
+
                             </div>
                         </div>
                         <?php
@@ -82,7 +84,7 @@
                 }
                 ?>
             </div>
-            <!-- End of Page Results -->
+
 
             <!--Pagination-->
             <div class="pagination-bar text-center">
