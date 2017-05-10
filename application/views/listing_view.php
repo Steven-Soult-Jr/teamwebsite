@@ -24,16 +24,25 @@
                 <div class="category-list">
                     <div class="tab-box ">
 
-                        <!--Sorting Function -->
-                        <div class="tab-filter pull-right">
-                            <div class="selecter select-short-by closed" tabindex="0"><select
-                                        class="selectpicker selecter-element" data-style="btn-select" data-width="auto"
-                                        tabindex="-1">
-                                    <option value="Sort by">Sort by</option>
-                                    <option value="Price: Low to High">Price: Low to High</option>
-                                    <option value="Price: High to Low">Price: High to Low</option>
-                                </select></div>
-                        </div>
+<!--                        <!--Sorting Function -->-->
+<!--                        <div class="tab-filter pull-right">-->
+<!--                            <div class="selecter select-short-by closed" tabindex="0"><select-->
+<!--                                        class="selectpicker selecter-element" data-style="btn-select" data-width="auto"-->
+<!--                                        tabindex="-1">-->
+<!--                                    <option value="Sort by">Sort by</option>-->
+<!--                                    <option value="Price: Low to High"><a href="--><?php //echo base_url('/index.php/listing/sortLoToHi'); ?><!--"></a>Price: Low to High</option>-->
+<!--                                    <option value="Price: High to Low">Price: High to Low</option>-->
+<!--                                </select></div>-->
+<!--                        </div>-->
+
+                        <!-- Sort Form -->
+                        <form>
+                            <select name="Sort By" class="pull-right">
+                                <option selected value="#">Sort By</option>
+                                <option name="Price: Low to High">Price: Low to High</option>
+                                <option name="Price: High to Low">Price: High to Low</option>
+                            </select>
+                        </form>
 
                         <div class="menu-overly-mask"></div>
                     </div>
@@ -43,9 +52,11 @@
 
             <br> <!--Needed Spacing -->
 
+
             <div class="row">
 
                 <?php
+                sort($results);
                 if (isset($results)) {
                     echo "<br>";
                     foreach ($results as $row) {
@@ -93,17 +104,6 @@
                 ?>
             </div>
 
-
-            <!--Pagination-->
-            <div class="pagination-bar text-center">
-                <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"> ...</a></li>
-                    <li><a class="pagination-btn" href="#">Next »</a></li>
-                </ul>
-            </div>
             <!--/MainPage-->
         </div>
     </div>

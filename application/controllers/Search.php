@@ -39,6 +39,7 @@ class Search extends CI_Controller{
         and stores the data in an array named 'results' */
         $data['category'] = $category;
         $data['results'] = $this->search_model->get_items($keyword, $category);
+        $data['sortedResults'] = sort($data['results']);
 
         // loads the search_view page, passing it data from get_items()
         $title = array(
@@ -60,7 +61,7 @@ class Search extends CI_Controller{
         $this->load->view('footer');
 
     }
-    
+
     public function load_description(){
         //loads the view for the item description
         $title = array(
