@@ -23,17 +23,7 @@
             <div class="col-sm-12 page-content">
                 <div class="category-list">
                     <div class="tab-box ">
-
-<!--                        <!--Sorting Function -->-->
-<!--                        <div class="tab-filter pull-right">-->
-<!--                            <div class="selecter select-short-by closed" tabindex="0"><select-->
-<!--                                        class="selectpicker selecter-element" data-style="btn-select" data-width="auto"-->
-<!--                                        tabindex="-1">-->
-<!--                                    <option value="Sort by">Sort by</option>-->
-<!--                                    <option value="Price: Low to High"><a href="--><?php //echo base_url('/index.php/listing/sortLoToHi'); ?><!--"></a>Price: Low to High</option>-->
-<!--                                    <option value="Price: High to Low">Price: High to Low</option>-->
-<!--                                </select></div>-->
-<!--                        </div>-->
+                        
 
                         <!-- Sort Form -->
                         <form>
@@ -43,7 +33,6 @@
                                 <option name="Price: High to Low">Price: High to Low</option>
                             </select>
                         </form>
-=======
                         <!--Sorting Function -->
                         <div class="tab-filter">
                             <form action="execute_search" method="post">
