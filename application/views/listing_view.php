@@ -23,18 +23,10 @@
             <div class="col-sm-12 page-content">
                 <div class="category-list">
                     <div class="tab-box ">
-                        
 
-                        <!-- Sort Form -->
-                        <form>
-                            <select name="Sort By" class="pull-right">
-                                <option selected value="#">Sort By</option>
-                                <option name="Price: Low to High">Price: Low to High</option>
-                                <option name="Price: High to Low">Price: High to Low</option>
-                            </select>
-                        </form>
+
                         <!--Sorting Function -->
-                        <div class="tab-filter">
+                        <div class="tab-filter pull-right">
                             <form action="execute_search" method="post">
                                 <?php if (isset($searchquery)) :?>
                                     <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
