@@ -1,7 +1,6 @@
 <?php
 
-class Registration_model extends CI_Model{
-    
+class Registration_model extends CI_Model {
     public function __construct() {
         $this->load->database();
     }
@@ -17,7 +16,7 @@ class Registration_model extends CI_Model{
                         return TRUE;
                 }
     }
-    
+
     public function db_submit($data){
         //var_dump($data["firstname"]); Debugging
         //Password is not escaped, since it is not a string and should not be modified
@@ -31,4 +30,3 @@ class Registration_model extends CI_Model{
         return true;
     }
 }
-
