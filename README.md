@@ -6,8 +6,13 @@ LAMP stack, CodeIgniter Framework, Bootstrap, MySQL database, Google analytics.
 
 ## Team Members
 Nickolas Hoffman, Team Lead
+
 Steven Soult, CTO
+
 Vivian Lee
+
 AJ Culanay
+
 Matthew Serna
+
 Jonas Vinter-Jensen
